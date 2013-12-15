@@ -661,7 +661,7 @@ public class CubexParser2 extends Parser {
 			case STRING:
 				{
 				setState(157); ((ExprContext)_localctx).STRING = match(STRING);
-				((ExprContext)_localctx).e =  new CString((((ExprContext)_localctx).STRING!=null?((ExprContext)_localctx).STRING.getText():null));
+				((ExprContext)_localctx).e =  new CString((((ExprContext)_localctx).STRING!=null?((ExprContext)_localctx).STRING.getText():null)); System.out.println("string expr");
 				}
 				break;
 			default:
@@ -1065,7 +1065,7 @@ public class CubexParser2 extends Parser {
 				consume();
 				setState(272); ((StatContext)_localctx).e = expr(0);
 				setState(273); match(SEMICOLON);
-				((StatContext)_localctx).s =  new ReturnStat(((StatContext)_localctx).e.e);
+				((StatContext)_localctx).s =  new ReturnStat(((StatContext)_localctx).e.e); System.out.println("return stat");
 				}
 				break;
 			default:

@@ -110,7 +110,7 @@ expr returns [CuExpr e]
 
 	| INTEGER {$e = new CInteger($INTEGER.int);}
 
-	| STRING {$e = new CString($STRING.text);};
+	| STRING {$e = new CString($STRING.text); System.out.println("string expr");};
 
 exprs returns [List<CuExpr> cu] 
 
@@ -128,7 +128,7 @@ stat returns [CuStat s]
 
 	| FOR LPAREN VAR IN e=expr RPAREN st=stat {$s = new ForStat($VAR.text, $e.e, $st.s);}
 
-	| (RETURN | EQUAL) e=expr SEMICOLON {$s = new ReturnStat($e.e);};
+	| (RETURN | EQUAL) e=expr SEMICOLON {$s = new ReturnStat($e.e); System.out.println("return stat");};
 
 stats returns [List<CuStat> cu] 
 
