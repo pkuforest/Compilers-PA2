@@ -1,0 +1,1 @@
+class Foo < > ( x : Integer < > ) extends Thing { super ( ) ; fun getX < > ( ) : Integer < > return x ; } return "hello world" ;

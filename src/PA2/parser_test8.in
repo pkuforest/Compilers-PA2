@@ -1,0 +1,7 @@
+class Foo(x : Integer) extends Thing {
+  fun getX() : Integer {
+    return x;
+  }
+}
+
+return "hello world"; 

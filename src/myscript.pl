@@ -1,4 +1,4 @@
-for ($i=1; $i<7; $i++) {
+for ($i=1; $i<20; $i++) {
  $re = `java Cubex PA2/parser_test$i.in`;
  @retype = split("\n", $re);
  open $fh, "PA2/parser_test$i.out";

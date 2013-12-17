@@ -110,7 +110,7 @@ expr returns [CuExpr e]
 
 	| INTEGER {$e = new CInteger($INTEGER.int);}
 
-	| STRING {$e = new CString($STRING.text); System.out.println("string expr");};
+	| STRING {$e = new CString($STRING.text);};
 
 exprs returns [List<CuExpr> cu] 
 
@@ -128,7 +128,7 @@ stat returns [CuStat s]
 
 	| FOR LPAREN VAR IN e=expr RPAREN st=stat {$s = new ForStat($VAR.text, $e.e, $st.s);}
 
-	| (RETURN | EQUAL) e=expr SEMICOLON {$s = new ReturnStat($e.e); System.out.println("return stat");};
+	| (RETURN | EQUAL) e=expr SEMICOLON {$s = new ReturnStat($e.e);};
 
 stats returns [List<CuStat> cu] 
 
@@ -136,11 +136,11 @@ stats returns [List<CuStat> cu]
 
 intf returns [CuInterface i]
 
-	: INTERFACE CLSINTF p=kindcontext {$i = new Intf($CLSINTF.text, $p.kc);} (EXTENDS t=type {$i.add($t.t);} LBRACE (FUN VAR ts=typescheme SEMICOLON {$i.add($VAR.text, $ts.ts);})* RBRACE)?;
+	: INTERFACE CLSINTF p=kindcontext {$i = new Intf($CLSINTF.text, $p.kc);} (EXTENDS t=type {$i.add($t.t);})? LBRACE (FUN VAR ts=typescheme SEMICOLON {$i.add($VAR.text, $ts.ts);})* RBRACE;
 
 cls returns [CuClass c]
 
-	: CLASS CLSINTF pk=kindcontext pt=typecontext {$c = new Cls($CLSINTF.text, $pk.kc, $pt.tc);} (EXTENDS t=type {$c.add($t.t);} LBRACE (s=stat {$c.add($s.s);})* (SUPER LPAREN es=exprs RPAREN SEMICOLON {$c.add($es.cu);})? (FUN VAR ts=typescheme s=stat {$c.add($VAR.text, $ts.ts, $s.s);})* RBRACE)?;
+	: CLASS CLSINTF pk=kindcontext pt=typecontext {$c = new Cls($CLSINTF.text, $pk.kc, $pt.tc);} (EXTENDS t=type {$c.add($t.t);})? LBRACE (s=stat {$c.add($s.s); })* (SUPER LPAREN es=exprs RPAREN SEMICOLON {$c.add($es.cu);})? (FUN VAR ts=typescheme s=stat {$c.add($VAR.text, $ts.ts, $s.s);})* RBRACE;
 
 program returns [CuProgr p]
 

@@ -1,0 +1,15 @@
+class Foo() {
+  fun bar() : Nothing {
+    x := z;
+    {
+      y := x;
+      x := y;
+      {
+        return z;
+      }
+      return y;
+    }
+  }
+}
+
+x := Foo(); 

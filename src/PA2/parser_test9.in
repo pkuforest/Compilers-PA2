@@ -1,0 +1,6 @@
+class Singleton<T>(x : T) {
+  y := x;
+  fun getX() : T { return y; }
+}
+
+x := y;

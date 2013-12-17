@@ -1,6 +1,6 @@
 lexer grammar CubexLexer2;
 
-STRING : ('"'(~[\t\r\n])*'"');
+STRING : ('"'((~[\t\r\n])+?)?'"');
 IF : 'if';
 ELSE : 'else';
 WHILE : 'while';

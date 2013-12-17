@@ -1,0 +1,1 @@
+class Singleton < T > ( x : T ) extends Thing { y := x ; super ( ) ; fun getX < > ( ) : T return y ; } x := y ;

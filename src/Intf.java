@@ -6,7 +6,7 @@ public class Intf extends CuInterface{
 	private String intf_name;
 	private String funs = "";
 	private List<String> kc_name;
-	private CuType t;
+	private CuType t = new VTopBot("Thing");
 	private ArrayList<String> v_names = new ArrayList<String>();
 	private ArrayList<CuTypeScheme> ts_names = new ArrayList<CuTypeScheme>();
 	public Intf (String iname, List<String> kname){
@@ -21,7 +21,6 @@ public class Intf extends CuInterface{
 	@Override
 	public void add (CuType tt) {
 		t = tt;
-		text += " " + t.toString();
 	}
 	@Override
 	public void add (String v_name, CuTypeScheme ts) {
@@ -31,6 +30,7 @@ public class Intf extends CuInterface{
 	}
 	
 	@Override public String toString() {
+		text += " " + t.toString();
 		text += " { " + funs + " } ";
 		return text;
 	}

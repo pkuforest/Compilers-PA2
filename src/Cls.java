@@ -7,7 +7,7 @@ public class Cls extends CuClass {
 	String clsintf;
 	List<String> kc;
 	List<CuVvt> tc;
-	String type;
+	String type = "Thing";
 	List<CuStat> ss = new ArrayList<CuStat>();
 	List<CuExpr> es;
 	List<String> fun = new ArrayList<String>();
@@ -35,7 +35,7 @@ public class Cls extends CuClass {
 	}
 	
 	@Override public String toString() {
-		return String.format("class %s %s %s extends %s { %s super ( %s ) ; %s }", 
+		return String.format("class %s %s %s extends %s { %s super %s ; %s }", 
 				clsintf, CuMethod.printList("<", kc, ">", ","), CuMethod.printList("(", tc, ")", ","), type, 
 				CuMethod.printList("", ss, "", ""), CuMethod.printList("(", es, ")", ","), CuMethod.printList("", fun, "", ""));
 	}

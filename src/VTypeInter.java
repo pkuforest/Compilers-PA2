@@ -3,7 +3,7 @@ public class VTypeInter extends CuType {
 	public VTypeInter(CuType t1, CuType t2){
 		data_t1=t1;
 		data_t2=t2;
-		super.text=t1.toString()+" \u222A "+t2.toString();
+		super.text=t1.toString()+" & "+t2.toString();
 	}
 
 }

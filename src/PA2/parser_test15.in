@@ -1,0 +1,21 @@
+interface Tokenizable {
+  fun tokenize() : String;
+}
+
+interface Sizeable {
+  fun size() : Integer;
+}
+
+class StringPair(str1 : String, str2 : String) extends Tokenizable & Sizeable {
+
+  fun tokenize() : String {
+    return "(" ++ str1 ++ "," ++ str2 ++ ")";
+  }
+
+  fun size() : Integer {
+    return 2;
+  }
+}
+
+pair1 := StringPair("hello", "world");
+return pair1.tokenize(); 
